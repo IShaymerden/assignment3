@@ -11,6 +11,7 @@ public class Flight {
     private String flightNumber;
     private String destination;
 
+
     public Flight() {}
 
     public Flight(int id, String flightNumber, String destination) {

@@ -11,17 +11,16 @@ public class Passenger {
     private String name;
     private String passportNumber;
 
-    // Пустой конструктор для Jackson
     public Passenger() {}
 
-    // Конструктор, который требует твой контроллер
+
     public Passenger(int id, String name, String passportNumber) {
         this.id = id;
         this.name = name;
         this.passportNumber = passportNumber;
     }
 
-    // Геттеры и сеттеры
+
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public String getName() { return name; }

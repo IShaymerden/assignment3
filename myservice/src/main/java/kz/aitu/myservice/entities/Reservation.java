@@ -14,16 +14,16 @@ public class Reservation {
     private String seatNumber;
     private LocalDateTime bookingDate;
 
-    @ManyToOne // Одно бронирование связано с одним пассажиром
+    @ManyToOne
     @JoinColumn(name = "passenger_id")
     private Passenger passenger;
 
-    @ManyToOne // Одно бронирование связано с одним рейсом
+    @ManyToOne
     @JoinColumn(name = "flight_id")
     private Flight flight;
 
     public Reservation() {
-        this.bookingDate = LocalDateTime.now(); // Время ставится само при создании
+        this.bookingDate = LocalDateTime.now();
     }
 
     public Reservation(String seatNumber, Passenger passenger, Flight flight) {
@@ -33,7 +33,7 @@ public class Reservation {
         this.flight = flight;
     }
 
-    // Геттеры и сеттеры
+
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public String getSeatNumber() { return seatNumber; }
