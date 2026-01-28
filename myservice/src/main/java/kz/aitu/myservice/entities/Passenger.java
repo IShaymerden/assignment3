@@ -11,9 +11,9 @@ public class Passenger {
     private String name;
     private String passportNumber;
 
-    public Passenger() {}
+    public Passenger() {
 
-
+    }
     public Passenger(int id, String name, String passportNumber) {
         this.id = id;
         this.name = name;
