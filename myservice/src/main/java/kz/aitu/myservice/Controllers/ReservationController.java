@@ -15,6 +15,30 @@ public class ReservationController {
     @GetMapping
     public List<Reservation> getAll() { return repository.findAll(); }
 
+    @GetMapping("/{id}")
+    public Reservation getById(@PathVariable Integer id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Reservation not found with id: " + id));
+    }
+
     @PostMapping
     public Reservation create(@RequestBody Reservation reservation) { return repository.save(reservation); }
+
+    @PutMapping("/{id}")
+    public Reservation update(@PathVariable Integer id, @RequestBody Reservation details) {
+        Reservation res = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Reservation not found"));
+        res.setSeatNumber(details.getSeatNumber());
+        return repository.save(res);
+    }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable Integer id) {
+        Reservation res = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Reservation not found with id: " + id));
+
+        repository.delete(res);
+        return "Reservation with ID " + id + " deleted successfully";
+    }
+
 }
